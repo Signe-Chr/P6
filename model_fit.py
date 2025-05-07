@@ -3,9 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
-from sklearn import metrics
 
 np.random.seed(69420)
 
@@ -20,6 +18,7 @@ enc = OneHotEncoder(sparse_output=False).set_output(transform="pandas")
 encoded_data = enc.fit_transform(data[categorical_cols])
 
 data2 = pd.concat([data, encoded_data], axis=1).drop(columns=categorical_cols.to_list())
+X_df = data2.drop(columns=target_cols)
 
 X = pd.concat([data, encoded_data], axis=1).drop(columns=categorical_cols.to_list()+target_cols).to_numpy()
 Y = data[target_cols].to_numpy().flatten()
@@ -45,9 +44,3 @@ X_train, X_split, Y_train, Y_split = train_test_split(
 #Fit the model to the traning data
 clf = CalibratedClassifierCV(LogisticRegression(class_weight={0: 1.0, 1: 2.0}, C=1, penalty='l1', tol=0.01, solver='saga'), method='sigmoid')
 clf=clf.fit(X_train,Y_train)
-
-y_pred=clf.predict(X_split)
-disp = metrics.ConfusionMatrixDisplay.from_predictions(Y_split, y_pred)
-
-print(f"Confusion matrix:\n{disp.confusion_matrix}")
-print(f'Classification Report:\n{classification_report(Y_split, y_pred)}')
