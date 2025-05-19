@@ -2,7 +2,7 @@ import numpy as np
 import os
 from PIL import Image
 from timeit import default_timer as timer
-
+np.random.seed(42)
 
 dir = r"C:\Users\madsd\.cache\kagglehub\datasets\tawsifurrahman\covid19-radiography-database\versions\5\COVID-19_Radiography_Dataset"
 
