@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from model_fit import clf,X_split,Y_split,X_df
+from model_fit_stroke import clf,X_split,Y_split,X_df
 
 np.random.seed(69420)
 
