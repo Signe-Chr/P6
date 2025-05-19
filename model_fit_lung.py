@@ -1,12 +1,8 @@
 import numpy as np
-import os
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from Image_processor import ImageDims
 from load_data_lung import normal_all, covid_all, pneumonia_all
-
-
-
+np.random.seed(42)
 normal_train, normal_rest = train_test_split(normal_all, train_size = 0.4)
 covid_train, covid_rest = train_test_split(covid_all, train_size = 0.4)
 pneumonia_train, pneumonia_rest = train_test_split(pneumonia_all, train_size = 0.4)

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from PIL import Image
-from Image_processor import ImageDims
+from Image_processor_lung import ImageDims
 from load_data_lung import dir
 
 def plot_example(Label="Viral Pneumonia", OutputDims = ImageDims):

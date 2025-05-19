@@ -1,6 +1,6 @@
 import numpy as np
 import os
-from Image_processor import ImageDims
+from Image_processor_lung import ImageDims
 
 dir = r"C:\Users\madsd\.cache\kagglehub\datasets\tawsifurrahman\covid19-radiography-database\versions\5\COVID-19_Radiography_Dataset"
 

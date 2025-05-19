@@ -99,5 +99,4 @@ def preprocess_and_save(Label, OutputFolder, OutputDims = ImageDims, Flatten=Fal
     return
 
 t0 = timer()
-preprocess_and_save(Label="Lung_Opacity", OutputFolder=rf"{dir}\Processed")
 print(timer()-t0)
